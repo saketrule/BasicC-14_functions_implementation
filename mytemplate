@@ -1,0 +1,17 @@
+/*
+  Template File for c++ programs
+  Code by Saket Joshi
+  21.09.16
+*/
+
+#include <bits/stdc++.h>
+#define fin   for(int i=0;i<n;++i)
+#define fjn   for(int j=0;j<n;++j)
+#define vi      vector<int>
+#define vvi     vector<vector<int> >
+#define vs      vector<string>
+using namespace std;
+int main(){
+  
+  
+}
