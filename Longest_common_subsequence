@@ -1,0 +1,23 @@
+template<typename T>
+vt<T> longestcommonsubseq(vt<T> &a, vt<T> &b){
+    int n=a.size(),m=b.size();
+    vvi lis(n+1,vi (m+1,0));
+    f1(i,n)
+    f1(j,m){
+        if(a[i-1]==b[j-1])  lis[i][j] = lis[i-1][j-1]+1;
+        else                lis[i][j] = max(lis[i-1][j],lis[i][j-1]);
+    }
+    vt<T> ans;
+    for(int i=n,j=m;i>0 and j>0;){
+        if(a[i-1]==b[j-1]){
+            ans.pb(a[i-1]);
+            i--,j--;
+        }
+        else{
+            if(lis[i-1][j]==lis[i][j])  i--;
+            else                        j--;
+        }
+    }
+    reverse(all(ans));
+    return ans;
+}
