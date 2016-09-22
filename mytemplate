@@ -17,6 +17,8 @@
 #define pb          push_back
 #define f           first
 #define s           second
+#define pr          pair
+#define mkpr        make_pair
 
 using namespace std;
 int main(){
