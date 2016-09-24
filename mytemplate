@@ -19,6 +19,7 @@
 #define se           second
 #define pr          pair
 #define mkpr        make_pair
+#define pqueue(tp)  priority_queue<tp,vt<tp>,greater<tp> >
 
 using namespace std;
 int main(){
