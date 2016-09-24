@@ -19,7 +19,7 @@
 #define se           second
 #define pr          pair
 #define mkpr        make_pair
-
+#define MOD         1000000007
 using namespace std;
 
 vi firstnprimes(int n,long int lim=1000000){
@@ -57,4 +57,28 @@ vt<long long int> getfact(int n,long long int MOD=1000000007){
     ans[0]=1;
     f1(i,n)   ans[i] = (ans[i-1]*i)%MOD;
     return ans;
+}
+
+long long int ncr(int n,int r,long int MOD=1000000007){
+    long long int ans=1;
+    if(r>n/2)   r=n-r;
+    f1(t,r) ans = (ans*(n-t+1)/t)%MOD;
+    return ans;
+}
+
+vt<vt<long long int> > ncrtable(int n,int r, long int MOD=1000000007){
+    vt<vt<long long int> > table(n+1,vt<long long int> (r+1));
+    f(i,n+1)
+    f(j,r+1){
+        if(i/2>=j and i){
+            if(!j)  table[i][j]=1;
+            else
+                table[i][j] = (table[i-1][(((i-1)/2>=(j-1))?j-1:i-j)] + table[i-1][(((i-1)/2>=j)?j:i-j-1)])%MOD;
+        }
+    }
+    return table;
+}
+
+int main(){
+
 }
