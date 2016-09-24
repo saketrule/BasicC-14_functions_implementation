@@ -1,0 +1,34 @@
+int djikstra(vt<map<int,int> > &edges, int source, int sink){
+    vi dist(edges.size(),INT_MAX);
+    priority_queue<pr<int,int>,vt<pr<int,int> >, greater<pr<int,int> > > pq;
+    pq.push(mkpr(0,source));
+    while(!pq.empty()){
+        auto cur = pq.top();
+        pq.pop();
+        if(cur.se==sink)    return cur.fi;
+        if(dist[cur.se]>cur.fi){
+            dist[cur.se]=cur.fi;
+            for(auto to:edges[cur.se])
+            if(dist[to.fi]>cur.fi+to.se)
+                pq.push(mkpr(cur.fi+to.se,to.fi));
+        }
+    }
+    return -1;
+}
+
+vi djikstra(vt<map<int,int> > &edges, int source, int sink){
+    vi dist(edges.size(),INT_MAX);
+    priority_queue<pr<int,int>,vt<pr<int,int> >, greater<pr<int,int> > > pq;
+    pq.push(mkpr(0,source));
+    while(!pq.empty()){
+        auto cur = pq.top();
+        pq.pop();
+        if(dist[cur.se]>cur.fi){
+            dist[cur.se]=cur.fi;
+            for(auto to:edges[cur.se])
+            if(dist[to.fi]>cur.fi+to.se)
+                pq.push(mkpr(cur.fi+to.se,to.fi));
+        }
+    }
+    return dist;
+}
