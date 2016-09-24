@@ -15,8 +15,8 @@
 #define all(o)      (o).begin(),(o).end()
 #define var(o)      for(auto var:(o))
 #define pb          push_back
-#define f           first
-#define s           second
+#define fi           first
+#define se           second
 #define pr          pair
 #define mkpr        make_pair
 
