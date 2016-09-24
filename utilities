@@ -1,1 +1,60 @@
+/*
+  Template File for c++ programs
+  Code by Saket Joshi
+  21.09.16
+*/
 
+#include <bits/stdc++.h>
+#define f(i,n)      for(int (i)=0;(i)<(n);++(i))
+#define f1(i,n)     for(int (i)=1;(i)<=(n);++(i))
+#define vi          vector<int>
+#define vvi         vector<vector<int> >
+#define v(s)        vector<(s)>
+#define vv(s)       vector<vector<(s)> >
+#define vt          vector
+#define all(o)      (o).begin(),(o).end()
+#define var(o)      for(auto var:(o))
+#define pb          push_back
+#define fi           first
+#define se           second
+#define pr          pair
+#define mkpr        make_pair
+
+using namespace std;
+
+vi firstnprimes(int n,long int lim=1000000){
+    vt<bool> sieve(lim,true);
+    vi ans;
+    for(int i=2,cnt=0;cnt<n and i<lim;++i)
+    if(sieve[i]){
+        for(int j=2;j*i<lim;++j)
+            sieve[j*i]=false;
+        ans.pb(i);
+        cnt++;
+    }
+    return ans;
+}
+vi primestill(long int lim){
+    vt<bool> sieve(lim+1,true);
+    vi ans;
+    for(int i=2;i<=lim;++i)
+    if(sieve[i]){
+        for(int j=2;j*i<=lim;++j)
+            sieve[j*i]=false;
+        ans.pb(i);
+    }
+    return ans;
+}
+
+long long int fact(int n,long long int MOD=1000000007){
+    long long int ans=1;
+    f1(i,n) ans = (ans*i)%MOD;
+    return ans;
+}
+
+vt<long long int> getfact(int n,long long int MOD=1000000007){
+    vt<long long int> ans(n+1);
+    ans[0]=1;
+    f1(i,n)   ans[i] = (ans[i-1]*i)%MOD;
+    return ans;
+}
