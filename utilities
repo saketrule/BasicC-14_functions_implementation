@@ -25,9 +25,9 @@ using namespace std;
 vi firstnprimes(int n,long int lim=1000000){
     vt<bool> sieve(lim,true);
     vi ans;
-    for(int i=2,cnt=0;cnt<n and i<lim;++i)
+    for(int i=2,cnt=0;cnt<n and i*i<lim;++i)
     if(sieve[i]){
-        for(int j=2;j*i<lim;++j)
+        for(int j=i;j*i<lim;++j)
             sieve[j*i]=false;
         ans.pb(i);
         cnt++;
@@ -37,9 +37,9 @@ vi firstnprimes(int n,long int lim=1000000){
 vi primestill(long int lim){
     vt<bool> sieve(lim+1,true);
     vi ans;
-    for(int i=2;i<=lim;++i)
+    for(int i=2;i*i<=lim;++i)
     if(sieve[i]){
-        for(int j=2;j*i<=lim;++j)
+        for(int j=i;j*i<=lim;++j)
             sieve[j*i]=false;
         ans.pb(i);
     }
